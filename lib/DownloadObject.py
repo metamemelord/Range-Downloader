@@ -5,6 +5,7 @@ class DownloadObject(object):
         self.__skip = []
         self.__url = ""
         self.__extension = ""
+        self.__skip = set()
 
     @property
     def start(self):
@@ -40,3 +41,10 @@ class DownloadObject(object):
     @extension.setter
     def extension(self, extension):
         self.__extension = extension
+
+    @property
+    def skip(self):
+        return self.__skip
+    @skip.setter
+    def skip(self, skip):
+        self.__skip = skip

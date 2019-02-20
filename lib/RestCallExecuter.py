@@ -17,6 +17,8 @@ class RestCallExecuter(object):
                 raise ValueError("Resources not set")
                 exit(1)
             for idx in range(self.__download_object.start, self.__download_object.end + 1):
+                if idx in self.__download_object.skip:
+                    continue
                 final_url = self.__download_object.url + str(idx) + "." + self.download_object.extension
                 filename = final_url.split('/')[-1]
                 res = requests.get(final_url)

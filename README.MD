@@ -13,13 +13,13 @@ pip install requests
 ### Usage:
 
 ```
-$ python src/main.py <start_index (integer)> <end_index (integer)> <base_url> <extension> <optional: index_to_skip_1> <optional: index_to_skip_2> <optional: index_to_skip_3> ...
+$ python main.py <start_index (integer)> <end_index (integer)> <base_url> <extension> <optional: index_to_skip_1> <optional: index_to_skip_2> <optional: index_to_skip_3> ...
 ```
 
 ### Example
 
 ```
-$ python src/main.py 1 5 https://Something-I-Want-To-Download/this png 3 4
+$ python main.py 1 5 https://Something-I-Want-To-Download/this png 3 4
 ```
 
 Downloads:
