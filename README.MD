@@ -13,7 +13,7 @@ pip install requests
 ### Usage:
 
 ```
-$ python src/main.py <start_index (integer)> <end_index (integer)> <base_url> <extension> <index_to_skip_1> <index_to_skip_2> <index_to_skip_3> ...
+$ python src/main.py <start_index (integer)> <end_index (integer)> <base_url> <extension> <optional: index_to_skip_1> <optional: index_to_skip_2> <optional: index_to_skip_3> ...
 ```
 
 ### Example
