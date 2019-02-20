@@ -19,7 +19,7 @@ class RestCallExecuter(object):
             final_url = self.download_object.start + str(idx)
             res = request.get(final_url)
             if res.status_code == 200:
-                print("download_objectwnloaded %s"%final_url)
+                print("Downloaded %s"%final_url)
                 yield res.body
             else:
                 print("Error while retrieving %s"%final_url)

@@ -21,14 +21,25 @@ class FileSaver(object):
     def extension(self, extension):
         self.__extension = extension
 
-    def save(self, data):
-        if self.filename == None:
-            raise ValueError("Filename not set")
+    def save(self, data, directory):
+        if self.filename == None or self.extension == None:
+            raise ValueError("Filename or extension not set")
         try:
-            with(os.path.join(__path__, "../downloads", self.filename, self.extension), 'wb') as f:
+            download_folder = os.path.realpath(os.path.join(os.getcwd(), "..", "..", "Downloads"))
+            final_path = os.path.join(download_folder, directory)
+            if not os.path.isdir(download_folder):
+                os.makedirs(download_folder)
+            if not os.path.isdir(final_path):
+                os.makedirs(final_path)
+            print(os.path.join(final_path, self.filename + "." + self.extension), data)
+            with open(os.path.join(final_path, self.filename + "." + self.extension), 'wb') as f:
                 f.write(data)
             return "Ok"
         except ValueError:
             return "Could not save the data"
-        except Error as e:
-            return e.message
+        except PermissionError:
+            return "Operation not permitted by OS"
+        except OSError:
+            return "Operation not permitted by OS"
+        except Exception as e:
+            return e
