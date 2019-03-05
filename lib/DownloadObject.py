@@ -2,9 +2,9 @@ class DownloadObject(object):
     def __init__(self):
         self.__start = 0
         self.__end = 1
-        self.__skip = []
         self.__url = ""
         self.__extension = ""
+        self.__string_to_append = ""
         self.__skip = set()
 
     @property
@@ -43,8 +43,8 @@ class DownloadObject(object):
         self.__extension = extension
 
     @property
-    def skip(self):
-        return self.__skip
-    @skip.setter
-    def skip(self, skip):
-        self.__skip = skip
+    def string_to_append(self):
+        return self.__string_to_append
+    @string_to_append.setter
+    def string_to_append(self, string_to_append):
+        self.__string_to_append = string_to_append

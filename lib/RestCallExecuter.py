@@ -13,14 +13,16 @@ class RestCallExecuter(object):
 
     def execute(self):
         try:
-            if self.__download_object == None:
+            if self.download_object == None:
                 raise ValueError("Resources not set")
-                exit(1)
-            for idx in range(self.__download_object.start, self.__download_object.end + 1):
-                if idx in self.__download_object.skip:
+            for idx in range(self.download_object.start, self.download_object.end + 1):
+                if idx in self.download_object.skip:
                     continue
-                final_url = self.__download_object.url + str(idx) + "." + self.download_object.extension
-                filename = final_url.split('/')[-1]
+                final_url = self.download_object.url + str(idx) + "." + self.download_object.extension
+                filename = final_url.split('/')[-1].split(".")
+                if len(self.download_object.string_to_append):
+                    filename[0] += "-" + self.download_object.string_to_append
+                filename = ".".join(filename)
                 res = requests.get(final_url)
                 if res.status_code == 200:
                     print("Downloaded %s"%filename)
