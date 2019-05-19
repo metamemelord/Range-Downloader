@@ -1,22 +1,22 @@
 # Range-Downloader
 
-Downloader for resources that are stored in a numeric sequence
+Downloader for resources that are stored in a numeric sequence. 
+###### External dependency: requests (https://pypi.org/project/requests/)
 
 ## Project setup
 
-Install dependency
+#### Install dependency
 
 ```
 pip install requests
 ```
-
-### Usage:
+#### Usage:
 
 ```
 $ python main.py <base_url> <file_extension> <start_index (integer)> <end_index (integer)> <optional: string to append to filenames> <optional: index_to_skip_1 (integer)> <optional: index_to_skip_2 (integer)> ...
 ```
 
-### Example
+#### Example
 
 ```
 $ python main.py https://Something-I-Want-To-Download/this png 1 5 test 3 4
@@ -36,4 +36,5 @@ Saved files:
 % Project_Root % / Downloads / this / this1-test.png
 % Project_Root % / Downloads / this / this2-test.png
 % Project_Root % / Downloads / this / this5-test.png
+% Project_Root % / Downloads / this / download.log
 ```
